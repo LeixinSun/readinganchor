@@ -1,0 +1,212 @@
+.reading-anchor-logic,
+.reading-anchor-claim,
+.reading-anchor-important,
+.reading-anchor-problem,
+.reading-anchor-content {
+  color: inherit !important;
+  background: transparent !important;
+  display: inline;
+  font-style: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  pointer-events: none;
+}
+
+.reading-anchor-logic {
+  font-weight: 650;
+}
+
+.reading-anchor-claim {
+  font-weight: 620;
+  text-decoration: underline;
+  text-decoration-thickness: 0.05em;
+  text-decoration-color: color-mix(in srgb, currentColor 38%, transparent);
+  text-underline-offset: 0.08em;
+}
+
+.reading-anchor-important {
+  font-weight: 670;
+}
+
+.reading-anchor-problem {
+  font-weight: 645;
+  text-decoration: underline;
+  text-decoration-thickness: 0.04em;
+  text-decoration-color: color-mix(in srgb, currentColor 28%, transparent);
+  text-underline-offset: 0.09em;
+}
+
+.reading-anchor-content {
+  font-weight: 610;
+}
+
+.reading-anchor-prefix {
+  font-weight: 700;
+}
+
+.reading-anchor-panel {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 2147483647;
+  width: 272px;
+  box-sizing: border-box;
+  border: 1px solid rgba(17, 24, 39, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 252, 247, 0.94);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18);
+  backdrop-filter: blur(14px);
+  color: #1f2937;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  pointer-events: auto;
+}
+
+.reading-anchor-panel,
+.reading-anchor-panel * {
+  box-sizing: border-box;
+}
+
+.reading-anchor-panel__inner {
+  padding: 14px;
+}
+
+.reading-anchor-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.reading-anchor-panel__header-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.reading-anchor-panel__title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reading-anchor-panel__dismiss {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(31, 41, 55, 0.62);
+  cursor: pointer;
+  font: inherit;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0 2px;
+}
+
+.reading-anchor-panel__dismiss:hover {
+  color: rgba(17, 24, 39, 0.94);
+}
+
+.reading-anchor-panel__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.reading-anchor-panel__toggle input {
+  margin: 0;
+}
+
+.reading-anchor-panel__group {
+  margin-top: 12px;
+}
+
+.reading-anchor-panel__label {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(31, 41, 55, 0.78);
+}
+
+.reading-anchor-panel__options {
+  display: grid;
+  gap: 6px;
+}
+
+.reading-anchor-panel__options--triple {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.reading-anchor-panel__button {
+  appearance: none;
+  border: 1px solid rgba(31, 41, 55, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #1f2937;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  padding: 8px 10px;
+  text-align: center;
+  transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease;
+}
+
+.reading-anchor-panel__button:hover {
+  transform: translateY(-1px);
+}
+
+.reading-anchor-panel__button.is-active {
+  border-color: rgba(17, 24, 39, 0.42);
+  background: rgba(31, 41, 55, 0.08);
+}
+
+.reading-anchor-panel__button--reset {
+  width: 100%;
+  margin-top: 14px;
+  background: rgba(248, 250, 252, 0.92);
+}
+
+.reading-anchor-panel-reopen {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 2147483647;
+  appearance: none;
+  border: 1px solid rgba(17, 24, 39, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 252, 247, 0.94);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+  color: #1f2937;
+  cursor: pointer;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 10px 14px;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+}
+
+@media (max-width: 720px) {
+  .reading-anchor-panel {
+    top: auto;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    width: auto;
+  }
+
+  .reading-anchor-panel-reopen {
+    top: auto;
+    right: 12px;
+    bottom: 12px;
+  }
+}
