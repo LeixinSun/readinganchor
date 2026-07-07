@@ -1,62 +1,93 @@
-# Reading Anchors
+<div align="center">
+  <img src="icons/icon128.png" alt="Reading Anchors icon" width="96" height="96" />
+  <h1>Reading Anchors</h1>
+  <p>
+    A lightweight Chrome / Edge extension that makes English articles easier to scan
+    by highlighting discourse structure, evidence cues, and other high-information words.
+  </p>
+</div>
 
-`Reading Anchors` 是一个面向 Chrome / Edge 的 Manifest V3 浏览器扩展。
+<p align="center">
+  <img src="images/12800.png" alt="Reading Anchors screenshot" />
+</p>
 
-它会在英文网页中高亮一部分“结构词”和“信息词”，例如转折、因果、论证强度、方法、证据等线索，帮助读者更快扫出段落结构，适合英文阅读、论文浏览和信息密集型文章场景。
+## What It Does
 
-## 功能
+Reading Anchors adds subtle visual anchors to ordinary English web pages.
 
-- 点击扩展图标即可对当前页面启用或关闭标记
-- 为转折、因果、论证、方法、证据等关键词添加视觉锚点
-- 提供浮动控制面板，可调整强度和模式
-- 设置保存在 `chrome.storage.local`
-- 所有文本处理都在本地浏览器内完成，不依赖远程服务
+Instead of trying to summarize or rewrite content, it helps the reader see the shape of an argument: contrast words, causal links, claim strength, method cues, evidence language, and selected content-bearing terms. The result is faster paragraph scanning, especially on dense articles, essays, and research-heavy writing.
 
-## 安装
+## Why
 
-1. 打开 `chrome://extensions` 或 `edge://extensions`
-2. 开启 `Developer mode`
-3. 点击 `Load unpacked`
-4. 选择当前项目目录
+A lot of reading difficulty is structural, not lexical. Readers often know most of the words on a page, but still lose track of what the paragraph is doing.
 
-## 使用
+This extension is built around a narrower idea: make rhetorical structure visible without replacing the original text.
 
-1. 打开任意英文文章页
-2. 点击浏览器工具栏中的 `Reading Anchors`
-3. 观察页面中的结构词是否被标记
-4. 再点一次图标可恢复原文
-5. 需要时可用浮动面板切换 `Low / Medium / High` 和不同模式
+## Features
 
-## 项目结构
+- One-click toggle on the current page
+- Floating control panel for density and mode
+- Exact restore when toggled off
+- Local-only processing in the browser
+- No account, no backend, no remote text upload
+- Works well on articles, blog posts, and long-form documentation
 
-- `manifest.json`：扩展清单
-- `background.js`：点击图标后注入脚本和样式
-- `content.js`：页面文本扫描、匹配、包裹与恢复逻辑
-- `styles.css`：高亮样式和浮动面板样式
-- `icons/`：扩展图标
-- `release/`：打包产物
+## Install
 
-## 手动验证
+### Load unpacked
 
-- 在新闻页、博客页或 Wikipedia 页面启用扩展
-- 确认 `however`、`because`、`therefore` 等词会被标记
-- 确认链接仍可点击
-- 确认 `code`、`pre` 等区域不会被污染
-- 确认关闭扩展后页面文本能完整恢复
+1. Open `chrome://extensions` or `edge://extensions`
+2. Enable `Developer mode`
+3. Click `Load unpacked`
+4. Select this project folder
 
-## 打包
+## Use
 
-项目中已经包含一个示例打包文件：
+1. Open an English article or essay
+2. Click the `Reading Anchors` toolbar icon
+3. Adjust density or mode from the floating panel if needed
+4. Click the icon again to restore the original page text
+
+## Modes
+
+- `Structure`: prioritizes discourse markers and argument flow
+- `Balanced`: mixes structure words with more content-bearing cues
+- `Dense`: surfaces more signals for aggressive scanning
+
+## Project Structure
+
+- `manifest.json`: Manifest V3 extension config
+- `background.js`: injects the content script and stylesheet on click
+- `content.js`: page traversal, matching, wrapping, panel UI, and restore logic
+- `styles.css`: anchor styles and floating panel styles
+- `icons/`: extension icons
+- `release/`: packaged build artifact
+
+## Privacy
+
+Reading Anchors processes page text locally in the browser.
+
+- It runs only when the user activates it
+- It stores settings in `chrome.storage.local`
+- It does not send page content to a server
+
+## Packaging
+
+A packaged build is already included:
 
 - `release/reading-anchors-extension.zip`
 
-如需重新打包，可在项目根目录执行：
+To rebuild it:
 
 ```bash
 mkdir -p release
 zip -r release/reading-anchors-extension.zip manifest.json background.js content.js styles.css README.md icons
 ```
 
-## 说明
+## Manual Check
 
-这是一个本地处理型扩展。它只在用户主动点击扩展时作用于当前页面，不会把页面内容发送到外部服务器。
+- Activate the extension on a news article or Wikipedia page
+- Confirm words like `however`, `because`, and `therefore` are highlighted
+- Confirm links remain clickable
+- Confirm `code` and `pre` blocks are left untouched
+- Confirm toggling off restores the original text
